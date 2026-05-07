@@ -23,13 +23,13 @@ error_reporting(E_ALL);
     if(isset($_POST['tambah'])){
         $nama = $_POST['nama'];
         $sandi = $_POST['sandi'];
-        mysqli_query($koneksi, "INSERT INTO users (nama, sandi) VALUES('$nama', '$sandi')");
+        mysqli_query($koneksi, "INSERT INTO Users (nama, sandi) VALUES('$nama', '$sandi')");
     }
 
     // Logika Delete
     if(isset($_GET['hapus'])){
         $id = $_GET['hapus'];
-        mysqli_query($koneksi, "DELETE FROM users WHERE id=$id");
+        mysqli_query($koneksi, "DELETE FROM Users WHERE id=$id");
         header("Location: index.php");
     }
     ?>
@@ -43,7 +43,7 @@ error_reporting(E_ALL);
             <th>Aksi</th>
         </tr>
         <?php
-        $data = mysqli_query($koneksi, "SELECT * FROM users");
+        $data = mysqli_query($koneksi, "SELECT * FROM Users");
         while($d = mysqli_fetch_array($data)){
         ?>
         <tr>
